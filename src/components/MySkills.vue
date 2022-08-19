@@ -1,53 +1,52 @@
 <template>
   <div class="hello">
     <div class="holder">
-    
       <form @submit.prevent="addSkill">
-        <input type="text" placeholder="Enter a skill you have..." v-model="skill" name="skill">
+        <input
+          type="text"
+          placeholder="Enter a skill you have..."
+          v-model="skill"
+          name="skill"
+        />
       </form>
-      
+
       <ul>
-        <li v-for="(data, index) in skills" :key='index'>
+        <li v-for="(data, index) in skills" :key="index">
           {{ index }}. {{ data.skill }}
           <i class="fa fa-minus-circle" v-on:click="remove(index)"></i>
         </li>
       </ul>
-    
+
       <p>These are the skills that you possess</p>
     </div>
   </div>
 </template>
 
 <script>
-
 export default {
-  name: 'Skils',
+  name: "MySkills",
   data() {
     return {
-      skill:'',
-      skills: [
-        { "skill": "Vue.js" },
-        { "skill": "Frontend Developer" }
-      ]
-    }
+      skill: "",
+      skills: [{ skill: "Vue.js" }, { skill: "Frontend Developer" }],
+    };
   },
   methods: {
     addSkill() {
-      this.skills.push({skill: this.skill})
-      this.skill = '';
+      this.skills.push({ skill: this.skill });
+      this.skill = "";
     },
     remove(id) {
-      this.skills.splice(id,1);
-    }
-  }
-}
+      this.skills.splice(id, 1);
+    },
+  },
+};
 </script>
 
- 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
 @import "https://cdn.jsdelivr.net/npm/animate.css@3.5.1";
-@import "https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"; 
+@import "https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css";
 .holder {
   background: #fff;
 }
@@ -60,13 +59,13 @@ ul {
 ul li {
   padding: 20px;
   font-size: 1.3em;
-  background-color: #E0EDF4;
-  border-left: 5px solid #3EB3F6;
+  background-color: #e0edf4;
+  border-left: 5px solid #3eb3f6;
   margin-bottom: 2px;
-  color: #3E5252;
+  color: #3e5252;
 }
 p {
-  text-align:center;
+  text-align: center;
   padding: 30px 0;
   color: gray;
 }
@@ -79,7 +78,7 @@ input {
   padding: 20px;
   font-size: 1.3em;
   background-color: #323333;
-  color: #687F7F;
+  color: #687f7f;
 }
 .alert {
   background: #fdf2ce;
@@ -89,24 +88,24 @@ input {
   margin-top: -20px;
 }
 .alert-in-enter-active {
-  animation: bounce-in .5s;
+  animation: bounce-in 0.5s;
 }
 .alert-in-leave-active {
-  animation: bounce-in .5s reverse;
+  animation: bounce-in 0.5s reverse;
 }
 @keyframes bounce-in {
-0% {
-  transform: scale(0);
-}
-50% {
-  transform: scale(1.5);
-}
-100% {
-  transform: scale(1);
-}
+  0% {
+    transform: scale(0);
+  }
+  50% {
+    transform: scale(1.5);
+  }
+  100% {
+    transform: scale(1);
+  }
 }
 i {
-  float:right;
-  cursor:pointer;
+  float: right;
+  cursor: pointer;
 }
 </style>

@@ -1,6 +1,6 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-import Skills from '@/components/Skills.vue'
+import MySkills from '@/components/MySkills.vue'
 import About from '@/components/About.vue'
 
 Vue.use(Router)
@@ -10,7 +10,7 @@ export default new Router({
     {
       path: '/',
       name: 'skills',
-      component: Skills
+      component: MySkills
     },
     {
       path: '/about/:name',
